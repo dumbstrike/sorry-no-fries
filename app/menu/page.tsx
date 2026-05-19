@@ -1,72 +1,94 @@
-import { SectionReveal } from "@/components/section-reveal";
+"use client";
 
-const menuItems = [
-  { name: "The Refusal", note: "Oysters, burple oil, no bread basket", price: "24" },
-  { name: "Humble Pie", note: "Charred leek, apology ash, aged cheddar", price: "19" },
-  {
-    name: "Last Supper (Sans Spuds)",
-    note: "Dry-aged ribeye, forbidden starch policy",
-    price: "58",
-  },
-  { name: "Mercy Course", note: "Dark chocolate, folk honey, regret", price: "14" },
-  { name: "Silent Potato", note: "Cauliflower purée, burple glaze, deception", price: "22" },
-  { name: "Ghost Fry", note: "Parsnip ribbons, sea salt, memory of starch", price: "18" },
-  { name: "Burple Bowl", note: "Forbidden rice, edible flowers, no sides", price: "26" },
-  { name: "Chef's Regret", note: "Wagyu tartare, truffle oil, solemn promise", price: "45" },
-];
+import { useState } from "react";
+
+const menu = {
+  burgers: [
+    { name: "burple core burger", desc: "emotionally unstable cheddar architecture", price: 12 },
+    { name: "void melt burger", desc: "blackened taste dimension collapse", price: 14 },
+    { name: "glitch stack", desc: "unexpected flavor recursion loop", price: 13 },
+    { name: "max evasion special", desc: "CEO-approved reality distortion patty", price: 16 },
+    { name: "anti-fries burger", desc: "comes with ideological resistance", price: 15 }
+  ],
+
+  beans: [
+    { name: "green bean standard", desc: "beans all day philosophy", price: 6 },
+    { name: "spicy burple beans", desc: "heat + existential clarity", price: 7 },
+    { name: "garlic silence beans", desc: "quiet but aggressive flavor", price: 7 }
+  ],
+
+  drinks: [
+    { name: "burple slushie", desc: "cold emotional compression", price: 5 },
+    { name: "burple soda", desc: "carbonated color theory", price: 4 },
+    { name: "void smoothie", desc: "blended uncertainty", price: 6 }
+  ],
+
+  sweets: [
+    { name: "burple donut", desc: "soft chaos ring", price: 4 },
+    { name: "glazed confusion cookie", desc: "crumbled decision making", price: 3 }
+  ]
+};
 
 export default function MenuPage() {
+  const [tab, setTab] = useState("burgers");
+
+  const categories = Object.keys(menu);
+
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-matte text-cream">
-      <SectionReveal className="site-section site-section--loose border-b border-cream/[0.06] bg-void">
-        <div className="site-wrap">
-          <header className="section-head flex flex-col gap-8 border-b border-cream/10 pb-12 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-16">
-            <div className="section-stack gap-6">
-              <p className="type-eyebrow">Full collection</p>
-              <h1 className="type-display type-display--xl">MENU</h1>
+    <main className="min-h-screen bg-black text-white px-6 py-24">
+
+      {/* HEADER */}
+      <div className="text-center mb-16">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight">
+          MENU
+        </h1>
+        <p className="text-white/50 mt-4">
+          curated under burple philosophy
+        </p>
+      </div>
+
+      {/* TABS */}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map((c) => (
+          <button
+            key={c}
+            onClick={() => setTab(c)}
+            className={`px-5 py-2 rounded-full border transition ${
+              tab === c
+                ? "bg-[#8D7BFF] text-black"
+                : "border-white/20 text-white/70 hover:text-white"
+            }`}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+
+      {/* GRID */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        {menu[tab].map((item, i) => (
+          <div
+            key={i}
+            className="p-6 border border-white/10 bg-white/5 rounded-2xl hover:bg-white/10 transition"
+          >
+            <div className="flex justify-between items-start">
+              <h3 className="font-bold text-lg capitalize">
+                {item.name}
+              </h3>
+              <span className="text-[#8D7BFF] font-semibold">
+                ${item.price}
+              </span>
             </div>
-            <p className="type-lead max-w-xs md:text-right">
-              Cruel to carbs · Subject to chef&apos;s remorse
-            </p>
-          </header>
 
-          <ul>
-            {menuItems.map((item, i) => (
-              <li
-                key={item.name}
-                className="menu-row group grid border-b border-cream/[0.06] transition-colors last:border-b-0 hover:bg-burple/[0.04] md:grid-cols-[5.5rem_1fr_auto] md:items-start"
-              >
-                <span className="font-mono text-3xl font-bold text-burple/45 md:pt-1 md:text-4xl">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="min-w-0">
-                  <h2 className="text-3xl uppercase tracking-wide transition-colors group-hover:text-burple md:text-5xl md:leading-none">
-                    {item.name}
-                  </h2>
-                  <p className="type-lead mt-4 max-w-lg">{item.note}</p>
-                </div>
-                <div className="flex items-baseline gap-8 md:flex-col md:items-end md:gap-3 md:pt-1">
-                  <span className="font-mono text-2xl text-burple md:text-3xl">${item.price}</span>
-                  <span className="type-eyebrow text-burple-glow/80">No fries</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </SectionReveal>
-
-      <SectionReveal className="site-section site-section--loose section-ambient section-ambient--manifesto folk-border">
-        <div className="site-wrap depth-content">
-          <div className="section-stack max-w-2xl">
-            <p className="type-eyebrow">Note</p>
-            <p className="type-lead">
-              All plates served without apology. Sides available upon request —
-              <span className="text-burple"> never fried potatoes</span>. Our commitment to the
-              anti-fry movement is absolute, permanent, and non-negotiable.
+            <p className="text-white/50 text-sm mt-2">
+              {item.desc}
             </p>
           </div>
-        </div>
-      </SectionReveal>
-    </div>
+        ))}
+
+      </div>
+
+    </main>
   );
 }

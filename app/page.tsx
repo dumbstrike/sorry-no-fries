@@ -15,23 +15,29 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+       <>
+  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/70 to-black" />
 
-        <div className="relative z-10 max-w-5xl text-center">
+ 
+</>
+
+        <div className="relative z-10 max-w-6xl text-center">
           
           <p className="uppercase tracking-[0.4em] text-sm text-[#B6A9FF] mb-6">
             beans all day
           </p>
 
-          <h1 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tight">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-[-0.04em]">
             SORRY.
             <br />
-            NO.
+           <span className="text-[#8D7BFF] drop-shadow-[0_0_18px_rgba(141,123,255,0.45)]">
+  NO.
+</span>
             <br />
             FRIES
           </h1>
 
-          <p className="mt-8 text-white/70 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="mt-10 text-white/60 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed font-light">
             A cinematic restaurant and lifestyle experience built around the
             fictional color burple, experimental food culture, and the Burplefolk universe.
           </p>

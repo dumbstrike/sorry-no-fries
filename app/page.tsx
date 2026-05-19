@@ -11,7 +11,7 @@ export default function HomePage() {
             alt="Burplefolk"
             fill
             priority
-          className="object-cover object-[center_25%] opacity-40"
+          className="object-cover object-[center_35%] opacity-40"
           />
         </div>
 
@@ -22,7 +22,7 @@ export default function HomePage() {
 </>
 
         <div className="relative z-10 max-w-6xl text-center">
-          
+        
           <p className="uppercase tracking-[0.4em] text-sm text-[#B6A9FF] mb-6">
             beans all day
           </p>

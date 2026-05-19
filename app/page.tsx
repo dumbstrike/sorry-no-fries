@@ -11,7 +11,7 @@ export default function HomePage() {
             alt="Burplefolk"
             fill
             priority
-          className="object-cover object-[center_35%] opacity-40"
+          className="object-cover object-[center_25%] opacity-40"
           />
         </div>
 

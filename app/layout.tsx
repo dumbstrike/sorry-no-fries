@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${mono.variable} h-full`}>
-      <body className="min-h-full flex flex-col grain">{children}</body>
+      <body className="min-h-full flex flex-col bg-matte grain">{children}</body>
     </html>
   );
 }

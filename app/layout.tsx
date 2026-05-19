@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const display = Bebas_Neue({
   weight: "400",
@@ -27,7 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${mono.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-matte grain">{children}</body>
+      <body className="min-h-full flex flex-col bg-matte grain">
+        <Navbar />
+        <main className="relative z-10 flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

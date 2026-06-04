@@ -81,31 +81,52 @@ export function Navbar() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav
-          className="md:hidden border-t border-cream/[0.06] bg-matte"
-          aria-label="Mobile navigation"
+  <>
+    <div
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+      onClick={() => setMobileOpen(false)}
+    />
+
+    <div className="fixed top-0 right-0 h-screen w-[88%] max-w-md bg-[#0b0b0b] border-l border-[#8D7BFF]/20 z-50 flex flex-col">
+      
+      <div className="flex items-center justify-between p-6 border-b border-white/5">
+        <span className="font-mono uppercase tracking-[0.3em] text-xs text-[#8D7BFF]">
+          SORRY. NO. FRIES
+        </span>
+
+        <button
+          onClick={() => setMobileOpen(false)}
+          className="text-white/60 hover:text-white"
         >
-          <div className="site-wrap flex flex-col py-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="type-display py-4 text-2xl uppercase tracking-wide text-cream/70 transition-colors hover:text-burple"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="btn btn--lg btn--primary btn--wide mt-6"
-            >
-              Reserve
-            </Link>
-          </div>
-        </nav>
-      )}
+          <X size={20} />
+        </button>
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center px-8">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setMobileOpen(false)}
+            className="text-4xl font-black uppercase py-3 text-white/80 hover:text-[#8D7BFF] transition-colors"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
+      <div className="p-8 border-t border-white/5">
+        <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+          Beans All Day
+        </p>
+
+        <p className="mt-3 text-sm text-white/50 leading-relaxed">
+          Premium bean culture inspired by Burplefolk.
+        </p>
+      </div>
+    </div>
+  </>
+)}
     </header>
   );
 }

@@ -97,9 +97,15 @@ animate-[slideIn_.35s_ease-out]
 ">
       
       <div className="flex items-center justify-between p-6 border-b border-white/5">
-        <span className="font-mono uppercase tracking-[0.3em] text-xs text-[#8D7BFF]">
-          SORRY. NO. FRIES
-        </span>
+        <div>
+  <div className="text-[#8D7BFF] text-xs tracking-[0.4em] uppercase">
+    SORRY. NO. FRIES
+  </div>
+
+  <div className="text-white/30 text-[10px] tracking-[0.25em] uppercase mt-1">
+    BEANS ALL DAY
+  </div>
+</div>
 
         <button
           onClick={() => setMobileOpen(false)}

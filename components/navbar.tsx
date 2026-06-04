@@ -140,6 +140,13 @@ animate-[slideIn_.35s_ease-out]
     </div>
   </>
 )}
-    </header>
+ <Link
+  href="/burple-radio"
+  className="flex items-center gap-2 text-burple hover:text-white transition"
+>
+  <span className="h-2 w-2 rounded-full bg-burple animate-pulse" />
+  LIVE
+</Link>
+   </header>
   );
 }

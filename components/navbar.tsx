@@ -87,7 +87,14 @@ export function Navbar() {
       onClick={() => setMobileOpen(false)}
     />
 
-    <div className="fixed top-0 right-0 h-screen w-[88%] max-w-md bg-[#0b0b0b] border-l border-[#8D7BFF]/20 z-50 flex flex-col">
+    <div className="
+fixed top-0 right-0 h-screen w-[88%] max-w-md
+bg-[#0b0b0b]
+border-l border-[#8D7BFF]/20
+z-50
+flex flex-col
+animate-[slideIn_.35s_ease-out]
+">
       
       <div className="flex items-center justify-between p-6 border-b border-white/5">
         <span className="font-mono uppercase tracking-[0.3em] text-xs text-[#8D7BFF]">
